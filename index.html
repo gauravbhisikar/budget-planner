@@ -294,6 +294,15 @@
   .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
   .tab-panel { display: none; }
   .tab-panel.active { display: block; }
+  /* Plan + Overview: separate tabs on mobile, side-by-side on desktop */
+  .budget-row { display: contents; }
+  @media (min-width: 821px) {
+    .tab[data-tab="overview"] { display: none; }                 /* no separate Overview tab on desktop */
+    .budget-row { display: none; }
+    .budget-row:has(> .tab-panel.active) { display: grid; grid-template-columns: 1.2fr 1fr; gap: 20px; align-items: start; }
+    .budget-row:has(> .tab-panel.active) > .tab-panel { display: block; }   /* show both cards together */
+    #tab-overview { position: sticky; top: 16px; }
+  }
 
   /* Back-to-top */
   #toTop {
@@ -362,6 +371,7 @@
     <button class="tab" data-tab="sync">☁️ Sync</button>
   </div>
 
+  <div class="budget-row">
   <div class="tab-panel active" id="tab-budget">
     <!-- income + accounts + expense/savings/investment inputs -->
     <div class="card">
@@ -423,6 +433,7 @@
       <div class="legend" id="legend"></div>
     </div>
   </div><!-- /tab-overview -->
+  </div><!-- /budget-row -->
 
   <div class="tab-panel" id="tab-transfers">
   <div class="card">
