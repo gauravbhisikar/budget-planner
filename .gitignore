@@ -1,0 +1,5 @@
+# Local tooling
+.claude/
+
+# Personal exports — never publish your actual budget data
+*.pdf
