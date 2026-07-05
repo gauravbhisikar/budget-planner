@@ -353,7 +353,8 @@
   </div>
 
   <div class="tabs">
-    <button class="tab active" data-tab="budget">💰 Budget</button>
+    <button class="tab active" data-tab="budget">💰 Plan</button>
+    <button class="tab" data-tab="overview">📊 Overview</button>
     <button class="tab" data-tab="transfers">🏦 Transfers</button>
     <button class="tab" data-tab="growth">📈 Growth</button>
     <button class="tab" data-tab="goals">🎯 Goals</button>
@@ -362,8 +363,7 @@
   </div>
 
   <div class="tab-panel active" id="tab-budget">
-  <div class="grid">
-    <!-- LEFT: controls -->
+    <!-- income + accounts + expense/savings/investment inputs -->
     <div class="card">
       <h2>Monthly Income</h2>
       <div class="income-row">
@@ -395,9 +395,10 @@
       <div id="sec-Investment"></div>
       <button class="add-btn" data-add="Investment">+ Add investment</button>
     </div>
+  </div><!-- /tab-budget -->
 
-    <!-- RIGHT: visualization -->
-    <div class="card breakdown">
+  <div class="tab-panel" id="tab-overview">
+    <div class="card">
       <h2>Breakdown</h2>
       <div class="chart-wrap">
         <svg id="pie" width="260" height="260" viewBox="0 0 260 260"></svg>
@@ -421,8 +422,7 @@
 
       <div class="legend" id="legend"></div>
     </div>
-  </div>
-  </div><!-- /tab-budget -->
+  </div><!-- /tab-overview -->
 
   <div class="tab-panel" id="tab-transfers">
   <div class="card">
